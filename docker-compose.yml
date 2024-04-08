@@ -1,0 +1,9 @@
+services:
+  your-app:
+    image: node:15.2.1  # Use the specific Node.js version
+    volumes:
+      - .:/app/dhiwise-node-master  # Mount your local code directory into the container's workspace
+    working_dir: /app/dhiwise-node-master  # Set the working directory within the container
+    command: sh -c "npm install --force && cd packages/client && npm dev && cd /app/dhiwise-node-master && cd packages/server && npm start "  # Install dependencies and run your application
+    ports:
+      - "3000:3000"  # Expose port 3000 of the container to port 3000 of your host machine (adjust as needed)

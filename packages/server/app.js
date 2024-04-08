@@ -20,7 +20,7 @@ const {
   ok, badRequest, serverError, forbidden, unauthorized, notFound, setResponse,
 } = require('./responses');
 
-const PORT = 3053;
+const PORT = 5053;
 const HOST = 'localhost';
 
 const app = express();

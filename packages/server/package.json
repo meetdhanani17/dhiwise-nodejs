@@ -5,7 +5,7 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "start": "node --inspect=0.0.0.0 app.js"
+    "start": "node --inspect=127.0.0.1 app.js"
   },
   "keywords": [],
   "author": "",

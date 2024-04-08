@@ -4,7 +4,7 @@ To run: ```node app```
 
 ## About
 
-Backend Service wil run on 3053 Port.
+Backend Service wil run on 5053 Port.
 
 This backend service is used to store input to generate the code. Using the front-end You can add your custom Inputs and code will be generated According to your inputs.
 
