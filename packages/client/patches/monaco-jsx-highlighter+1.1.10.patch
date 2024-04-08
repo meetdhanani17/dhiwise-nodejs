@@ -1,0 +1,66 @@
+diff --git a/node_modules/monaco-jsx-highlighter/dist/cjs/monaco-jsx-highlighter.js b/node_modules/monaco-jsx-highlighter/dist/cjs/monaco-jsx-highlighter.js
+index ee57040..fda037f 100644
+--- a/node_modules/monaco-jsx-highlighter/dist/cjs/monaco-jsx-highlighter.js
++++ b/node_modules/monaco-jsx-highlighter/dist/cjs/monaco-jsx-highlighter.js
+@@ -351,8 +351,8 @@ class MonacoJSXHighlighter {
+     this.resetState();
+   }
+   bindMethods() {
+-    const methods = ['resetState', 'resetDeltaDecorations', 'getAstPromise', 'highlightOnDidChangeModelContent', 'highlight', 'highlightCode', 'createDecoratorsByType', 'createJSXElementDecorators', 'extractAllDecorators', 'getJSXContext', 'runJSXCommentContextAndAction', 'addJSXCommentCommand', 'highLightOnDidChangeModelContent'];
+-    methods.forEach(method => this[method] = this[method].bind(this));
++    const methods = ['resetState', 'resetDeltaDecorations', 'getAstPromise', 'highlightOnDidChangeModelContent', 'highlight', 'highlightCode', 'createDecoratorsByType', 'createJSXElementDecorators', 'extractAllDecorators', 'getJSXContext', 'runJSXCommentContextAndAction', 'addJSXCommentCommand'];
++    methods.forEach(method => this[method] = this[method]?.bind(this));
+   }
+   resetState() {
+     this.prevEditorValue = null;
+@@ -361,7 +361,7 @@ class MonacoJSXHighlighter {
+     this.jsxManager = null;
+   }
+   resetDeltaDecorations() {
+-    this.JSXDecoratorIds = this.monacoEditor?.getModel().deltaDecorations(this.JSXDecoratorIds ?? [], []);
++    this.JSXDecoratorIds = this.monacoEditor?.getModel()?.deltaDecorations(this.JSXDecoratorIds ?? [], []);
+   }
+   async getAstPromise(forceUpdate) {
+     return await new Promise(resolve => {
+@@ -472,7 +472,7 @@ class MonacoJSXHighlighter {
+     for (const jsxType in JSXTypes) {
+       this.createDecoratorsByType(jsxManager, jsxType, JSXTypes[jsxType].options, JSXTypes[jsxType].highlightScope, decorators);
+     }
+-    this.JSXDecoratorIds = this.monacoEditor.getModel().deltaDecorations(this.JSXDecoratorIds ?? [], decorators);
++    this.JSXDecoratorIds = this.monacoEditor?.getModel()?.deltaDecorations(this.JSXDecoratorIds ?? [], decorators);
+     return decorators;
+   }
+   getJSXContext(selection, ast, monacoEditor, locToMonacoRange, jsxTraverseAst) {
+@@ -486,7 +486,7 @@ class MonacoJSXHighlighter {
+     if (!jsxManager) {
+       return JSXCommentContexts.JS;
+     }
+-    let startColumn = monacoEditor.getModel().getLineFirstNonWhitespaceColumn(selection.startLineNumber);
++    let startColumn = monacoEditor?.getModel()?.getLineFirstNonWhitespaceColumn(selection.startLineNumber);
+     const commentableRange = new monaco.Range(selection.startLineNumber, startColumn, selection.startLineNumber, startColumn);
+     startColumn = startColumn ? startColumn - 1 : 0;
+     const containingRange = new monaco.Range(selection.startLineNumber, startColumn, selection.startLineNumber, startColumn);
+@@ -541,7 +541,7 @@ class MonacoJSXHighlighter {
+         return;
+       }
+       const selection = editor.getSelection();
+-      const model = editor.getModel();
++      const model = editor?.getModel();
+       const jsCommentRange = new monaco.Range(selection.startLineNumber, model.getLineFirstNonWhitespaceColumn(selection.startLineNumber), selection.startLineNumber, model.getLineMaxColumn(selection.startLineNumber));
+       const jsCommentText = model.getValueInRange(jsCommentRange);
+       if (jsCommentText.match(/^\s*\/[/*]/)) {
+diff --git a/node_modules/monaco-jsx-highlighter/dist/es/monaco-jsx-highlighter.js b/node_modules/monaco-jsx-highlighter/dist/es/monaco-jsx-highlighter.js
+index 52493b5..7dc3794 100644
+--- a/node_modules/monaco-jsx-highlighter/dist/es/monaco-jsx-highlighter.js
++++ b/node_modules/monaco-jsx-highlighter/dist/es/monaco-jsx-highlighter.js
+@@ -347,8 +347,8 @@ class MonacoJSXHighlighter {
+     this.resetState();
+   }
+   bindMethods() {
+-    const methods = ['resetState', 'resetDeltaDecorations', 'getAstPromise', 'highlightOnDidChangeModelContent', 'highlight', 'highlightCode', 'createDecoratorsByType', 'createJSXElementDecorators', 'extractAllDecorators', 'getJSXContext', 'runJSXCommentContextAndAction', 'addJSXCommentCommand', 'highLightOnDidChangeModelContent'];
+-    methods.forEach(method => this[method] = this[method].bind(this));
++    const methods = ['resetState', 'resetDeltaDecorations', 'getAstPromise', 'highlightOnDidChangeModelContent', 'highlight', 'highlightCode', 'createDecoratorsByType', 'createJSXElementDecorators', 'extractAllDecorators', 'getJSXContext', 'runJSXCommentContextAndAction', 'addJSXCommentCommand'];
++    methods.forEach(method => this[method] = this[method]?.bind(this));
+   }
+   resetState() {
+     this.prevEditorValue = null;

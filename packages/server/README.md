@@ -1,6 +1,6 @@
 # Server
 
-To run: ```node app```
+To run: `node app`
 
 ## About
 
@@ -21,16 +21,16 @@ This backend service is used to store input to generate the code. Using the fron
   ├── assets
   ├── config
   │   ├── db.js    - contains api database connection
-  ├── constants    - contains commonly used constants 
-  ├── controllers               
+  ├── constants    - contains commonly used constants
+  ├── controllers
   │   ├── web      - contains usecases call with dependency injection
   ├── models       - models of application
   ├── output       - generated code
   ├── repo         - classes of models
-  ├── responses 
+  ├── responses
   ├── routes       - contains all the routes of application
   ├── usecase      - contains business logic
-  └── util-service - conatins utility functions     
-  ```
+  └── util-service - conatins utility functions
+```
 
-  - You can find the readme of generated code inside the generated code folder.
+- You can find the readme of generated code inside the generated code folder.
